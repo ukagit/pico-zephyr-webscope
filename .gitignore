@@ -1,0 +1,38 @@
+# Zephyr build output
+build/
+build-*/
+**/build/
+**/build-*/
+
+# Firmware and compiler output
+*.bin
+*.elf
+*.hex
+*.map
+*.o
+*.obj
+*.uf2
+*.a
+
+# CMake and Ninja
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build.ninja
+compile_commands.json
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Editors
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Nicht veröffentlichte Tests
+ap_test.conf
+zephyr_webdisplay/
