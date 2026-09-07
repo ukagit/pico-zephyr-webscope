@@ -24,6 +24,52 @@ Aktueller stabiler Stand: **Firmware 0.2.2**
 - automatische Verbindung mit gespeicherten WLAN-Zugangsdaten
 - System- und Stackanalyse über die Shell
 
+## Bildschirmansichten
+
+### WebDisplay
+
+![Zephyr WebDisplay](docs/images/web-display.png)
+
+Die allgemeine WebDisplay-Fläche demonstriert das Grundprinzip des Projekts:
+Der Pico übermittelt einfache Zeichen- und Textinformationen, während der
+Browser die eigentliche Grafik auf einem HTML5-Canvas rendert. Damit wird kein
+Framebuffer und kein TFT-Grafikcontroller am Mikrocontroller benötigt.
+
+### ADC-Oszilloskop
+
+![ADC-Oszilloskop](docs/images/adc-oscilloscope.png)
+
+Das Oszilloskop stellt die von ADC0 an GP26 erfasste Signalform dar. Neben dem
+Kurvenverlauf zeigt die Oberfläche Zeitfenster, Minimum, Maximum, Mittelwert
+und die erkannte Frequenz. Die Zeitbasis kann von schnellen Signalen bis zu
+langsamen Verläufen umgeschaltet werden.
+
+### ADC-Spektrum
+
+![ADC-Spektrum](docs/images/adc-spectrum.png)
+
+Die FFT wird in JavaScript aus den binär übertragenen ADC-Zeitdaten berechnet.
+Angezeigt werden Frequenzbereich, FFT-Länge, Bin-Auflösung, stärkste
+Spektrallinie, Mittelung und Bildrate. Dadurch übernimmt der Browser den
+rechenintensiven Teil der Spektraldarstellung.
+
+### FFT-Wasserfall
+
+![FFT-Wasserfall](docs/images/fft-waterfall.png)
+
+Der Wasserfall ergänzt das momentane Spektrum um den zeitlichen Verlauf. Neue
+FFT-Zeilen werden fortlaufend eingefügt. Dauerhafte Träger, wechselnde Signale
+und kurzzeitige Bandaktivität lassen sich dadurch leichter erkennen als in
+einer einzelnen Spektralkurve.
+
+### Browser-Uhr
+
+![Browser-Uhr](docs/images/browser-clock.png)
+
+Die analoge und digitale Uhr wird vollständig im Browser erzeugt. Sie zeigt,
+dass unabhängige Canvas-Flächen parallel laufen können, ohne den RP2350 mit
+regelmäßigen Zeichenoperationen zu belasten.
+
 ## Konzept
 
 Ein TFT ohne Grafikprozessor würde den Mikrocontroller mit Bildspeicher,
@@ -225,4 +271,3 @@ Scope-Zeitbasis baut der Browser genau diesen Stream kontrolliert neu auf und
 ## Lizenz
 
 Siehe [LICENSE](LICENSE).
-
